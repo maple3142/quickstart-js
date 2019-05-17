@@ -7,7 +7,7 @@ export function Header() {
     <AppBar position="static">
       <Toolbar style={{ width: 1024, margin: '0 auto' }}>
         <img src={FIREBASE_LOGO} />
-        <Typography variant="h6" color="inherit">
+        <Typography variant="h4" color="inherit" style={{ marginLeft: 10 }}>
           Firebase Cloud Messaging
         </Typography>
       </Toolbar>
