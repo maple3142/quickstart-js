@@ -2,8 +2,8 @@ import firebase from 'firebase/app';
 import 'firebase/messaging';
 import React from 'react';
 import { render } from 'react-dom';
+import { firebaseConfig, vapidKey } from '../common/configuration';
 import { App } from './components/app';
-import { firebaseConfig, vapidKey } from './configuration';
 
 firebase.initializeApp(firebaseConfig);
 

@@ -1,3 +1,5 @@
+// This file will be imported from both the service worker and the window code.
+
 // Add your config object here. See this guide for more information:
 // https://firebase.google.com/docs/web/setup#config-object
 export const firebaseConfig = {
