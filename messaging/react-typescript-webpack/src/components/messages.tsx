@@ -1,5 +1,5 @@
-import React from "react";
-import { Typography } from "@material-ui/core";
+import { Typography } from '@material-ui/core';
+import React from 'react';
 
 export function Messages(props: { data: string[] }) {
   const { data } = props;

@@ -7,4 +7,4 @@ export const firebaseConfig = {
 // Add the public key generated from the console here.
 // See this guide for more information:
 // https://firebase.google.com/docs/cloud-messaging/js/client#configure_web_credentials_in_your_app
-export const vapidKey = "<YOUR_PUBLIC_VAPID_KEY_HERE>";
+export const vapidKey = '<YOUR_PUBLIC_VAPID_KEY_HERE>';

@@ -1,9 +1,9 @@
-import firebase from "firebase/app";
-import React, { useState, useEffect } from "react";
-import { CssBaseline, Paper, Button } from "@material-ui/core";
-import { Header } from "./header";
-import { Information } from "./information";
-import { Messages } from "./messages";
+import { Button, CssBaseline, Paper } from '@material-ui/core';
+import firebase from 'firebase/app';
+import React, { useEffect, useState } from 'react';
+import { Header } from './header';
+import { Information } from './information';
+import { Messages } from './messages';
 
 export function App({
   messaging
@@ -18,26 +18,26 @@ export function App({
     // The Notification object is a part of Notifications API.
     // https://developer.mozilla.org/en-US/docs/Web/API/Notification
     // https://developer.mozilla.org/en-US/docs/Web/API/Notification/permission
-    if (Notification.permission === "default") {
+    if (Notification.permission === 'default') {
       // The user hasn't been asked yet if they want to receive notifications.
       await Notification.requestPermission();
     }
 
-    if (Notification.permission !== "granted") {
-      console.warn("Notification permission not granted.");
+    if (Notification.permission !== 'granted') {
+      console.warn('Notification permission not granted.');
     }
   }
 
   async function getToken() {
     try {
-      const token = await messaging.getToken();
-      setToken(token);
+      const newToken = await messaging.getToken();
+      setToken(newToken);
       // TODO(developer): Send the current token to your server.
       // Send the Instance ID token your application server, so that it can:
       // - send messages back to this app
       // - subscribe/unsubscribe the token from topics
     } catch (error) {
-      console.warn("Unable to get token.", error);
+      console.warn('Unable to get token.', error);
     }
   }
 
@@ -47,7 +47,7 @@ export function App({
         await messaging.deleteToken(token);
         setToken(null);
       } catch (error) {
-        console.warn("Unable to delete token", error);
+        console.warn('Unable to delete token', error);
       }
     }
   }
@@ -87,7 +87,7 @@ export function App({
   useEffect(() => {
     // Call getToken when component mounts if Notification permission is
     // already granted.
-    if (Notification.permission === "granted") {
+    if (Notification.permission === 'granted') {
       getToken();
     }
     // Passing an empty array as the second argument to useEffect tells React
@@ -105,18 +105,18 @@ export function App({
   function getButton() {
     let onClickHandler: () => Promise<void>;
     let text: string;
-    if (Notification.permission === "default") {
+    if (Notification.permission === 'default') {
       // It is possible to ask for Notification Permission because it's not
       // explicitly granted or denied yet.
       onClickHandler = requestPermission;
-      text = "Request Permission";
-    } else if (Notification.permission === "granted" && !token) {
+      text = 'Request Permission';
+    } else if (Notification.permission === 'granted' && !token) {
       // Notification Permission is granted but there is no token.
       onClickHandler = getToken;
-      text = "Get Token";
+      text = 'Get Token';
     } else if (token) {
       onClickHandler = deleteToken;
-      text = "Delete Token";
+      text = 'Delete Token';
     } else {
       return null;
     }
@@ -144,7 +144,7 @@ export function App({
     <CssBaseline>
       <>
         <Header />
-        <div style={{ width: 1024, margin: "0 auto", padding: 20 }}>
+        <div style={{ width: 1024, margin: '0 auto', padding: 20 }}>
           <Paper style={{ marginBottom: 20, padding: 10 }}>
             <Information permission={Notification.permission} token={token} />
             {getButton()}

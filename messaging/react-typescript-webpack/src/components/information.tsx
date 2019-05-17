@@ -1,5 +1,5 @@
-import React from "react";
-import { Typography } from "@material-ui/core";
+import { Typography } from '@material-ui/core';
+import React from 'react';
 
 export function Information(props: {
   permission: NotificationPermission;
@@ -16,10 +16,10 @@ export function Information(props: {
         {token ? (
           <>
             <br />
-            <code style={{ wordBreak: "break-all" }}>{token}</code>
+            <code style={{ wordBreak: 'break-all' }}>{token}</code>
           </>
         ) : (
-          " None"
+          ' None'
         )}
       </Typography>
     </>

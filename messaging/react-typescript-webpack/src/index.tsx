@@ -1,9 +1,9 @@
-import firebase from "firebase/app";
-import "firebase/messaging";
-import React from "react";
-import { render } from "react-dom";
-import { App } from "./components/app";
-import { firebaseConfig, vapidKey } from "./configuration";
+import firebase from 'firebase/app';
+import 'firebase/messaging';
+import React from 'react';
+import { render } from 'react-dom';
+import { App } from './components/app';
+import { firebaseConfig, vapidKey } from './configuration';
 
 firebase.initializeApp(firebaseConfig);
 
@@ -11,6 +11,6 @@ firebase.initializeApp(firebaseConfig);
 const messaging = firebase.messaging();
 messaging.usePublicVapidKey(vapidKey);
 
-const root = document.createElement("div");
+const root = document.createElement('div');
 document.body.appendChild(root);
 render(<App messaging={messaging} />, root);
